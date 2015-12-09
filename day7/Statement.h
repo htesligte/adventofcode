@@ -178,9 +178,6 @@ public:
                 (*wires)[result] = l | r;
                 break;
 
-            default:
-            std::cout << operation << " is not handled!" << std::endl;
-                exit(1);
         }
     }
 

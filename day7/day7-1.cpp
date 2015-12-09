@@ -9,43 +9,6 @@
 
 std::map<std::string, unsigned short> wires;
 
-
-Part* retrievePart( std::string const& line )
-{
-	Part* part = new Part();
-	static size_t pos = 0;
-
-	size_t found = 0;
-	found = line.find(" ", pos );
-
-	part->pos = found;
-	part->text = line.substr( pos, ( found - pos ) );
-
-	if( found == std::string::npos )
-		pos = 0;
-	else
-		pos = found+1;
-
-	return part;
-}
-
-
-
-void parseLine(std::string const& line)
-{
-	// we search through the string until we found a space
-	Part* part;
-	bool isEnd = false;
-	do
-	{
-		part = retrievePart( line );
-		std::cout << "Found part: " << part->text << std::endl;
-		isEnd = part->isEnd();
-		delete part;
-	}
-	while( !isEnd );
-}
-
 void printWires()
 {
 	for (const auto &p : wires) {
